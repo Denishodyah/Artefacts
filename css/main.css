@@ -1,0 +1,812 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+body {
+  font-family: "OpensSansRegular", sans-serif;
+  font-size: clamp(0.75rem, 0.664rem + 0.37vw, 1rem);
+  line-height: 1.5;
+  color: rgb(255, 255, 255);
+  background-color: rgb(29, 47, 48);
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@font-face {
+  font-family: "OpensSansBold";
+  src: url("./../fonts/OpenSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpensSansRegular";
+  src: url("./../fonts/OpenSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpensSansSemiBold";
+  src: url("./../fonts/OpenSansSemiCondensed-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CormorantBold";
+  src: url("./../fonts/Cormorant-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CormorantBoldItalic";
+  src: url("./../fonts/Cormorant-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CormorantRegular";
+  src: url("./../fonts/Cormorant-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+.menu__icon {
+  display: none;
+}
+@media (max-width: 950px) {
+  .menu__icon {
+    display: block;
+    width: 30px;
+    height: 18px;
+    position: relative;
+    left: 0;
+    z-index: 5;
+    cursor: pointer;
+  }
+  .menu__icon span {
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.2s;
+  }
+  .menu__icon span:first-child {
+    top: 0;
+  }
+  .menu__icon span:last-child {
+    top: auto;
+    bottom: 0;
+  }
+  .menu__icon.active span {
+    transform: scale(0);
+  }
+  .menu__icon.active span:first-child {
+    transform: rotate(-45deg);
+    top: calc(50% - 1px);
+  }
+  .menu__icon.active span:last-child {
+    transform: rotate(45deg);
+    bottom: calc(50% - 1px);
+  }
+}
+@media (max-width: 950px) {
+  .menu__body {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: all 0.2s;
+  }
+}
+.menu__body.active {
+  left: 0;
+}
+.menu__list {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+@media (max-width: 950px) {
+  .menu__list {
+    flex-direction: column;
+    padding: 30px;
+    gap: 40px;
+    height: 100%;
+    width: 60%;
+    overflow: auto;
+  }
+}
+@media (max-width: 400px) {
+  .menu__list {
+    padding: 10px;
+  }
+}
+.menu__link {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+.menu__link:hover {
+  color: rgb(186, 226, 73);
+}
+.menu__link:active {
+  color: rgb(104, 139, 5);
+}
+.menu__link:focus-visible {
+  outline: rgb(104, 139, 5) solid 1px;
+  outline-offset: 2px;
+}
+@media (max-width: 950px) {
+  .menu {
+    font-size: 24px;
+  }
+}
+
+.form-search {
+  position: relative;
+  width: 200px;
+  height: 42px;
+}
+
+.form-search__input {
+  height: 42px;
+  width: 0;
+  padding: 0 8px 0 15px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  background: url(./../image/search.svg);
+  background-position: right;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  transition: all 1.5s;
+}
+.form-search__input:hover {
+  color: rgb(104, 139, 5);
+  width: 200px;
+  z-index: 1;
+  border-bottom: 2px solid rgb(104, 139, 5);
+}
+.form-search__input:focus-visible {
+  outline: 2px solid rgb(104, 139, 5);
+}
+
+.form-search__input::-moz-placeholder {
+  color: rgb(186, 226, 73);
+}
+
+.form-search__input::placeholder {
+  color: rgb(186, 226, 73);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  z-index: 20;
+}
+
+/* Стили содержимого модального окна */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  padding: 100px 20px;
+  background-color: rgba(11, 98, 21, 0.2);
+  box-shadow: rgb(29, 240, 236) 0px 5px 20px;
+  border-radius: 10px;
+}
+
+/* Стили кнопки закрытия модального окна */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 24px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.modal__title {
+  font-size: 32px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-login__box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-login__label {
+  font-size: 16px;
+  color: #00e21e;
+}
+
+.form-login__input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #00e21e;
+  margin-left: 10px;
+  color: rgb(186, 226, 73);
+  caret-color: #06fe27;
+}
+.form-login__input:focus {
+  outline: none;
+}
+
+.form-login__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border: 1px solid #00e21e;
+  border-radius: 10px;
+  transition: all 1s;
+}
+.form-login__button:hover {
+  background-color: #00e21e;
+}
+.form-login__button:focus-visible:focus-visible {
+  outline: rgb(104, 139, 5) solid 2px;
+}
+
+header {
+  padding-block: 20px;
+}
+
+.header-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header-actions {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  -moz-column-gap: 64px;
+       column-gap: 64px;
+}
+.header-actions__button {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.header-actions__button:focus-visible {
+  outline: 2px solid rgb(104, 139, 5);
+  outline-offset: 2px;
+}
+@media (max-width: 412px) {
+  .header-actions {
+    top: -30px;
+  }
+}
+
+.button-svg {
+  color: rgb(186, 226, 73);
+  transition: color 0.5s;
+}
+.button-svg:hover {
+  color: rgb(145, 172, 70);
+}
+.button-svg:active {
+  color: rgb(104, 139, 5);
+}
+
+.hero {
+  min-height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.hero__main {
+  padding-top: 115px;
+}
+.hero__title {
+  font-family: "CormorantBold";
+  font-size: clamp(1.875rem, 1.154rem + 2.88vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1;
+  max-width: 660px;
+  margin-bottom: 21px;
+}
+.hero__accent {
+  color: rgb(29, 47, 48);
+}
+.hero__description {
+  max-width: 609px;
+  margin-bottom: 24px;
+}
+.hero__link {
+  display: inline-flex;
+  font-family: "OpensSansBold";
+  color: rgb(186, 226, 73);
+  transition: all 0.5s;
+}
+.hero__link:hover {
+  color: rgb(104, 139, 5);
+}
+.hero__link:focus-visible {
+  outline: none;
+  outline: 1px solid rgb(131, 164, 64);
+}
+.hero__link:active {
+  color: rgb(137, 157, 157);
+}
+.hero__link .hero__svg {
+  display: inline-flex;
+  align-items: center;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+}
+
+.gallery {
+  padding: 60px 0 119px;
+}
+@media (max-width: 1280px) {
+  .gallery {
+    padding-bottom: 50px;
+  }
+}
+
+.gallery-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+  gap: 30px;
+}
+.gallery-card__item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(11, 11, 25, 0.4);
+}
+
+.card-body {
+  padding: 16px 16px 24px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.card-body__title {
+  font-family: "CormorantBold";
+  font-size: clamp(0.75rem, 0.462rem + 1.15vw, 1.5rem);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.card-body__description {
+  color: rgb(137, 157, 157);
+  margin-bottom: 16px;
+}
+.card-body__button {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding: 10px 28px;
+  background-color: transparent;
+  border: none;
+  color: rgb(186, 226, 73);
+  border: 1px solid rgb(186, 226, 73);
+  transition: all 0.7s;
+}
+.card-body__button:hover {
+  color: rgb(11, 25, 25);
+  background-color: rgb(186, 226, 73);
+}
+.card-body__button:focus-visible {
+  outline: rgb(131, 164, 64) solid 1px;
+  outline-offset: 2px;
+}
+.card-body__button:active {
+  border-color: rgb(104, 139, 5);
+  color: rgb(11, 25, 25);
+  background-color: rgb(104, 139, 5);
+}
+
+.about {
+  padding-bottom: 65px;
+}
+.about__title {
+  font-family: "CormorantBoldItalic";
+  font-size: clamp(1.5rem, 0.923rem + 2.31vw, 3rem);
+  line-height: 1;
+  margin-bottom: 33px;
+}
+
+.about-artifact {
+  display: flex;
+  gap: 10px;
+}
+@media (max-width: 1280px) {
+  .about-artifact {
+    flex-direction: column;
+    max-width: 825px;
+  }
+}
+.about-artifact__img {
+  height: auto;
+}
+
+.artifact-card {
+  background-color: rgb(186, 226, 73);
+  color: rgb(11, 25, 25);
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-self: stretch;
+  padding: 16px 16px 24px;
+  max-width: 255px;
+}
+@media (max-width: 1280px) {
+  .artifact-card {
+    max-width: 100%;
+  }
+}
+.artifact-card__title {
+  color: rgb(11, 25, 25);
+  font-family: "CormorantBold";
+  font-size: clamp(0.75rem, 0.462rem + 1.15vw, 1.5rem);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.artifact-card__description {
+  color: rgb(80, 104, 41);
+}
+.artifact-card__link {
+  color: rgb(11, 25, 25);
+  margin-top: auto;
+}
+@media (max-width: 1280px) {
+  .artifact-card__link {
+    margin-top: 20px;
+  }
+}
+
+.contacts {
+  min-height: 463px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .contacts {
+    min-height: 300px;
+  }
+}
+.contacts__title {
+  padding-top: 60px;
+  font-family: "CormorantBoldItalic";
+  font-size: clamp(1.5rem, 0.923rem + 2.31vw, 3rem);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.contacts__description {
+  max-width: 825px;
+  margin-bottom: 24px;
+}
+@media (max-width: 768px) {
+  .contacts__description {
+    display: none;
+  }
+}
+
+.contacts-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+}
+.contacts-form__label {
+  margin-bottom: 24px;
+}
+.contacts-form__input {
+  border: none;
+  padding: 10px 16px;
+  width: 100%;
+  height: 100%;
+  transition: all 1s;
+}
+.contacts-form__input:hover {
+  background-color: rgb(137, 157, 157);
+}
+.contacts-form__input:hover::-moz-placeholder {
+  color: rgb(255, 255, 255);
+}
+.contacts-form__input:hover::placeholder {
+  color: rgb(255, 255, 255);
+}
+.contacts-form__input:focus {
+  background-color: rgb(137, 157, 157);
+}
+.contacts-form__input:focus-visible {
+  background-color: rgb(137, 157, 157);
+  outline: #83a440 solid 1px;
+  outline-offset: 2px;
+}
+.contacts-form__button {
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: clamp(8rem, 11.5vw, 10rem);
+  cursor: pointer;
+  padding: 12px 22px;
+  background-color: rgb(186, 226, 73);
+  border: none;
+  font-family: "OpensSansBold";
+  transition: all 0.7s;
+}
+.contacts-form__button:hover {
+  background-color: rgb(145, 172, 70);
+}
+.contacts-form__button:focus-visible {
+  outline: rgb(131, 164, 64) solid 1px;
+  outline-offset: 2px;
+}
+.contacts-form__button:active {
+  background-color: rgb(137, 157, 157);
+}
+
+.footer {
+  min-height: 79px;
+}
+
+.footer-top {
+  background-color: rgb(11, 25, 25);
+  padding: 18px 0 18px;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.footer-socials__link {
+  display: inline-flex;
+}
+.footer-socials__link:focus-visible {
+  outline: rgb(131, 164, 64) solid 1px;
+  outline-offset: 2px;
+}
+.footer-socials__icon {
+  color: rgb(137, 157, 157);
+  transition: all 0.8s;
+}
+.footer-socials__icon:hover {
+  color: rgb(186, 226, 73);
+}
+.footer-socials__icon:active {
+  color: rgb(104, 139, 5);
+}
+
+.footer-bottom__coperight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: rgb(137, 157, 157);
+}/*# sourceMappingURL=main.css.map */
