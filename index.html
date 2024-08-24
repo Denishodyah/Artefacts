@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collection</title>
+    <link rel="shortcut icon" href="./image/artefact.jpeg" type="image/x-icon"/>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-block">
+          <a href="/" class="header__logo"
+            ><img
+              src="./image/logo.svg"
+              alt="fob"
+              class="header__imglogo"
+              loading="lazy"
+              width="65"
+              height="20"
+          /></a>
+          <div class="header__menu menu">
+            <p class="visually-hidden">Меню навигации</p>
+            <div class="menu__icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <nav class="menu__body">
+              <ul class="menu__list">
+                <li class="menu__item">
+                  <a href="index.html" class="menu__link">Каталог</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#portfolio" class="menu__link">Галерея</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#reviews" class="menu__link">О лаборатории</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#contacts" class="menu__link">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-actions">
+            <p class="visually-hidden">форма поиска</p>
+            <form class="form-search">
+              <label for="search"
+                ><span class="visually-hidden">форма поиска</span>
+                <input
+                  class="form-search__input"
+                  type="text"
+                  id="search"
+                  name="search"
+                  placeholder="Искать здесь..."
+                />
+              </label>
+            </form>
+
+            <a
+              href="#"
+              class="header-actions__button btn"
+              id="open-modal-button"
+            >
+              <svg
+                class="button-svg"
+                width="24.000000"
+                height="24.000000"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <rect
+                  id="log-in"
+                  width="23.000000"
+                  height="23.000000"
+                  transform="translate(0.500000 0.500000)"
+                  fill="#FFFFFF"
+                  fill-opacity="0"
+                />
+                <g clip-path="url(#clip13_180)">
+                  <path
+                    d="M15 3L19 3C19.53 3 20.03 3.21 20.41 3.58C20.78 3.96 21 4.46 21 5L21 19C21 19.53 20.78 20.03 20.41 20.41C20.03 20.78 19.53 21 19 21L15 21"
+                    stroke="#BAE249"
+                    stroke-opacity="1.000000"
+                    stroke-width="2.000000"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M10 17L15 12L10 7"
+                    stroke="#BAE249"
+                    stroke-opacity="1.000000"
+                    stroke-width="2.000000"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M15 12L3 12"
+                    stroke="#BAE249"
+                    stroke-opacity="1.000000"
+                    stroke-width="2.000000"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                  />
+                </g>
+              </svg>
+            </a>
+            <div class="modal" id="modal">
+              <p class="visually-hidden">форма входа</p>
+              <div class="modal-content">
+                <span class="close-button" id="close-modal-button">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    version="1.1"
+                    viewBox="0 0 32 32"
+                  >
+                    <circle style="fill: #31a71c" cx="16" cy="16" r="14" />
+                    <g
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,16,-6.627417)"
+                    >
+                      <rect
+                        style="fill: #ffffff"
+                        width="4"
+                        height="20"
+                        x="-18"
+                        y="6"
+                        transform="matrix(0,-1,1,0,0,0)"
+                      />
+                      <rect
+                        style="fill: #ffffff"
+                        width="4"
+                        height="20"
+                        x="14"
+                        y="6"
+                      />
+                    </g>
+                  </svg>
+                </span>
+                <p class="modal__title">Вход</p>
+                <form class="form-login">
+                  <p class="form-login__box">
+                    <label class="form-login__label" for="login">Логин:</label>
+                    <input
+                      class="form-login__input"
+                      type="text"
+                      id="login"
+                      name="login"
+                      required
+                    />
+                  </p>
+                  <p class="form-login__box">
+                    <label class="form-login__label" for="password"
+                      >Пароль:</label
+                    >
+                    <input
+                      class="form-login__input"
+                      type="password"
+                      id="password"
+                      name="password"
+                      required
+                    />
+                  </p>
+                  <button class="form-login__button" type="submit">Вход</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <section class="hero" style="background-image: url(./image/hero.jpeg)">
+        <div class="container">
+          <div class="hero__main">
+            <h1 class="hero__title">
+              Крупнейшая коллекция природных
+              <span class="hero__accent">артефактов</span>
+            </h1>
+            <div class="hero__description">
+              <p>
+                Являясь всего лишь частью общей картины, интерактивные
+                прототипы, которые представляют собой яркий пример европейского
+                типа политической и социальной культуры.
+              </p>
+            </div>
+
+            <a href="index.html" class="hero__link"
+              ><span class="hero__svg"
+                >Исследовать
+                <svg
+                  width="44.004089"
+                  height="13.321899"
+                  viewBox="0 0 44.0041 13.3219"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <desc></desc>
+                  <defs />
+                  <path
+                    d="M40.58 5.66L36.63 1.71C36.24 1.31 36.24 0.69 36.63 0.29C37.03 -0.1 37.65 -0.1 38.05 0.29L43.7 5.95C44.1 6.34 44.1 6.97 43.7 7.36L38.05 13.02C37.65 13.42 37.03 13.42 36.63 13.02C36.24 12.62 36.24 12 36.63 11.61L40.58 7.66L0 7.66L0 5.66L40.58 5.66Z"
+                    fill="#BAE249"
+                    fill-opacity="1.000000"
+                    fill-rule="evenodd"
+                  />
+                </svg> </span
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section class="gallery" id="portfolio">
+        <div class="container">
+          <ul class="gallery-card">
+            <li class="gallery-card__item">
+              <img
+                src="./image/card/1.jpeg"
+                alt="Растения"
+                class="gallery__img"
+                width="255"
+                height="180"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h2 class="card-body__title">Fig. 1 (plant)</h2>
+                <div class="card-body__description">
+                  Имеется спорная точка зрения, гласящая примерно следующее:
+                  активно развивающиеся страны третьего мира своевременно
+                  верифицированы.
+                </div>
+                <button type="button" class="card-body__button btn">
+                  Подробнее
+                </button>
+              </div>
+            </li>
+            <li class="gallery-card__item">
+              <img
+                src="./image/card/2.jpeg"
+                alt="Растения"
+                class="gallery__img"
+                width="255"
+                height="180"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h2 class="card-body__title">Fig. 2 (flower)</h2>
+                <div class="card-body__description">
+                  Прежде всего, синтетическое тестирование влечет за собой
+                  процесс внедрения и модернизации условий.
+                </div>
+                <button type="button" class="card-body__button btn">
+                  Подробнее
+                </button>
+              </div>
+            </li>
+            <li class="gallery-card__item">
+              <img
+                src="./image/card/3.jpeg"
+                alt="Растения"
+                class="gallery__img"
+                width="255"
+                height="180"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h2 class="card-body__title">Fig. 3 (leaf)</h2>
+                <div class="card-body__description">
+                  Лишь непосредственные участники прогресса неоднозначны и будут
+                  в равной степени предоставлены сами себе для работы.
+                </div>
+                <button type="button" class="card-body__button btn">
+                  Подробнее
+                </button>
+              </div>
+            </li>
+            <li class="gallery-card__item">
+              <img
+                src="./image/card/4.jpeg"
+                alt="Растения"
+                class="gallery__img"
+                width="255"
+                height="180"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h2 class="card-body__title">Fig. 4 (wood)</h2>
+                <div class="card-body__description">
+                  Базовый вектор развития не даёт нам иного выбора, кроме
+                  определения новых предложений.
+                </div>
+                <button type="button" class="card-body__button">
+                  Подробнее
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="about" id="reviews">
+        <div class="container">
+          <h2 class="about__title">Новые артефакты</h2>
+          <div class="about-artifact">
+            <img
+              src="./image/artefact.jpeg"
+              alt="артефакты"
+              class="about-artifact__img"
+              width="825"
+              height="493"
+              loading="lazy"
+            />
+            <div class="artifact-card">
+              <h3 class="artifact-card__title">Kurische Nehrung 24</h3>
+              <div class="artifact-card__description">
+                <p>
+                  Вот вам яркий пример современных тенденций - начало
+                  повседневной работы по формированию позиции выявляет срочную
+                  потребность методов управления процессами.
+                </p>
+                <p>
+                  Есть над чем задуматься: представители современных социальных
+                  резервов своевременно верифицированы.
+                </p>
+              </div>
+
+              <a href="#" class="hero__link artifact-card__link"
+                ><span class="hero__svg"
+                  >Читать далее
+                  <svg
+                    width="44.004089"
+                    height="13.321899"
+                    viewBox="0 0 44.0041 13.3219"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <desc></desc>
+                    <defs />
+                    <path
+                      d="M40.58 5.66L36.63 1.71C36.24 1.31 36.24 0.69 36.63 0.29C37.03 -0.1 37.65 -0.1 38.05 0.29L43.7 5.95C44.1 6.34 44.1 6.97 43.7 7.36L38.05 13.02C37.65 13.42 37.03 13.42 36.63 13.02C36.24 12.62 36.24 12 36.63 11.61L40.58 7.66L0 7.66L0 5.66L40.58 5.66Z"
+                      fill="#BAE249"
+                      fill-opacity="1.000000"
+                      fill-rule="evenodd"
+                    />
+                  </svg> </span
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="contacts" id="contacts"
+        style="background-image: url(./image/contacts.jpeg)"
+      >
+        <div class="container">
+          <h3 class="contacts__title">Помочь проекту</h3>
+          <div class="contacts__description">
+            <p>
+              Равным образом, экономическая повестка сегодняшнего дня не даёт
+              нам иного выбора, кроме определения прогресса профессионального
+              сообщества. Как принято считать, элементы политического процесса
+              рассмотрены исключительно в разрезе маркетинговых и финансовых
+              предпосылок.
+            </p>
+          </div>
+          <form class="contacts-form">
+            <label for="name" class="contacts-form__label">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="contacts-form__input"
+                placeholder="Имя"
+                required
+              />
+            </label>
+            <label for="email" class="contacts-form__label">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="contacts-form__input"
+                placeholder="Email"
+                required
+              />
+            </label>
+            <button type="submit" class="contacts-form__button">
+              Отправить
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <ul class="footer-socials">
+            <li class="footer-socials__item">
+              <a href="index.html" class="footer-socials__link" aria-label="youtube"
+                ><svg
+                  class="footer-socials__icon"
+                  width="24.000000"
+                  height="24.000000"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <defs />
+                  <path
+                    id="Vector"
+                    d="M21.54 6.49C22 8.28 22 12 22 12C22 12 22 15.72 21.54 17.5C21.28 18.48 20.54 19.26 19.6 19.52C17.89 20 12 20 12 20C12 20 6.1 20 4.39 19.52C3.45 19.25 2.7 18.48 2.45 17.5C2 15.72 2 12 2 12C2 12 2 8.28 2.45 6.49C2.71 5.51 3.45 4.73 4.39 4.47C6.1 4 12 4 12 4C12 4 17.89 4 19.6 4.47C20.55 4.74 21.29 5.51 21.54 6.49ZM10 15.5L16 12L10 8.5L10 15.5Z"
+                    fill="#899D9D"
+                    fill-opacity="1.000000"
+                    fill-rule="nonzero"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="footer-socials__item">
+              <a href="index.html" class="footer-socials__link" aria-label="instagram">
+                <svg
+                  class="footer-socials__icon"
+                  width="24.000000"
+                  height="24.000000"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <rect
+                
+                    width="23.000000"
+                    height="23.000000"
+                    transform="translate(0.500000 0.500000)"
+                    fill="#0B1919"
+                    fill-opacity="0"
+                  />
+                  <g clip-path="url(#clip13_11)">
+                    <path
+                      d="M12 2C14.71 2 15.05 2.01 16.12 2.06C17.18 2.11 17.91 2.27 18.54 2.52C19.2 2.77 19.76 3.12 20.32 3.67C20.83 4.17 21.22 4.78 21.47 5.44C21.72 6.08 21.89 6.81 21.94 7.87C21.98 8.94 22 9.28 22 12C22 14.71 21.99 15.05 21.94 16.12C21.89 17.18 21.72 17.91 21.47 18.54C21.22 19.21 20.83 19.82 20.32 20.32C19.82 20.83 19.21 21.22 18.54 21.47C17.91 21.72 17.18 21.88 16.12 21.93C15.05 21.98 14.71 22 12 22C9.28 22 8.94 21.99 7.87 21.93C6.81 21.88 6.08 21.72 5.45 21.47C4.78 21.22 4.17 20.83 3.67 20.32C3.16 19.82 2.77 19.21 2.52 18.54C2.27 17.91 2.1 17.18 2.06 16.12C2.01 15.05 2 14.71 2 12C2 9.28 2.01 8.94 2.06 7.87C2.1 6.81 2.27 6.08 2.52 5.44C2.77 4.78 3.16 4.17 3.67 3.67C4.17 3.16 4.78 2.77 5.45 2.52C6.08 2.27 6.81 2.11 7.87 2.06C8.94 2.01 9.28 2 12 2ZM12 7C10.67 7 9.4 7.52 8.46 8.46C7.52 9.4 7 10.67 7 12C7 13.32 7.52 14.59 8.46 15.53C9.4 16.47 10.67 17 12 17C13.32 17 14.59 16.47 15.53 15.53C16.47 14.59 17 13.32 17 12C17 10.67 16.47 9.4 15.53 8.46C14.59 7.52 13.32 7 12 7ZM18.5 6.75C18.5 6.41 18.36 6.1 18.13 5.86C17.89 5.63 17.58 5.5 17.25 5.5C16.91 5.5 16.6 5.63 16.36 5.86C16.13 6.1 16 6.41 16 6.75C16 7.08 16.13 7.39 16.36 7.63C16.6 7.86 16.91 8 17.25 8C17.58 8 17.89 7.86 18.13 7.63C18.36 7.39 18.5 7.08 18.5 6.75ZM12 9C12.79 9 13.55 9.31 14.12 9.87C14.68 10.44 15 11.2 15 12C15 12.79 14.68 13.55 14.12 14.12C13.55 14.68 12.79 15 12 15C11.2 15 10.44 14.68 9.87 14.12C9.31 13.55 9 12.79 9 12C9 11.2 9.31 10.44 9.87 9.87C10.44 9.31 11.2 9 12 9Z"
+                      fill="#899D9D"
+                      fill-opacity="1.000000"
+                      fill-rule="nonzero"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li class="footer-socials__item">
+              <a href="index.html" class="footer-socials__link" aria-label="facebook">
+                <svg
+                  class="footer-socials__icon"
+                  width="24.000000"
+                  height="24.000000"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <rect
+                   
+                    width="23.000000"
+                    height="23.000000"
+                    transform="translate(0.500000 0.500000)"
+                    fill="#0B1919"
+                    fill-opacity="0"
+                  />
+                  <g clip-path="url(#clip13_5)">
+                    <path
+                      d="M15.4 21L15.4 14.03L17.73 14.03L18.08 11.32L15.4 11.32L15.4 9.59C15.4 8.81 15.62 8.27 16.74 8.27L18.17 8.27L18.17 5.85C17.48 5.78 16.78 5.74 16.08 5.75C14.02 5.75 12.6 7.01 12.6 9.33L12.6 11.32L10.26 11.32L10.26 14.03L12.6 14.03L12.6 21L4 21C3.73 21 3.48 20.89 3.29 20.7C3.1 20.51 3 20.26 3 20L3 4C3 3.73 3.1 3.48 3.29 3.29C3.48 3.1 3.73 3 4 3L20 3C20.26 3 20.51 3.1 20.7 3.29C20.89 3.48 21 3.73 21 4L21 20C21 20.26 20.89 20.51 20.7 20.7C20.51 20.89 20.26 21 20 21L15.4 21Z"
+                      fill="#899D9D"
+                      fill-opacity="1.000000"
+                      fill-rule="nonzero"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li class="footer-socials__item">
+              <a href="index.html" class="footer-socials__link" aria-label="twitter"><svg
+                  class="footer-socials__icon"
+                  width="24.000000"
+                  height="24.000000"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <rect
+                    id="Frame"
+                
+                    width="23.000000"
+                    height="23.000000"
+                    transform="translate(0.500000 0.500000)"
+                    fill="#0B1919"
+                    fill-opacity="0"/>
+                  <g clip-path="url(#clip13_8)">
+                    <path
+                      d="M22.16 5.65C21.39 5.99 20.58 6.21 19.76 6.31C20.63 5.79 21.28 4.96 21.6 4C20.78 4.48 19.88 4.82 18.94 5.01C18.31 4.34 17.48 3.89 16.57 3.74C15.66 3.59 14.72 3.74 13.91 4.18C13.1 4.61 12.45 5.3 12.07 6.14C11.69 6.98 11.6 7.93 11.81 8.82C10.15 8.74 8.52 8.31 7.04 7.56C5.55 6.8 4.24 5.75 3.19 4.45C2.82 5.09 2.63 5.82 2.63 6.56C2.63 8.01 3.37 9.29 4.49 10.04C3.82 10.02 3.17 9.84 2.59 9.52L2.59 9.57C2.59 10.53 2.93 11.47 3.54 12.22C4.15 12.96 5 13.48 5.95 13.67C5.33 13.83 4.69 13.86 4.06 13.74C4.32 14.57 4.85 15.3 5.55 15.82C6.25 16.34 7.09 16.63 7.97 16.64C7.1 17.33 6.1 17.83 5.04 18.13C3.98 18.42 2.87 18.51 1.77 18.38C3.69 19.61 5.91 20.26 8.18 20.26C15.88 20.26 20.08 13.88 20.08 8.36C20.08 8.18 20.08 8 20.07 7.82C20.89 7.22 21.6 6.49 22.16 5.65L22.16 5.65Z"
+                      fill="#899D9D"
+                      fill-opacity="1.000000"
+                      fill-rule="nonzero"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom__coperight">f&b ® 2020</p>
+      </div>
+    </footer>
+    <script defer="defer" src="./JavaScript/main.js"></script>
+  </body>
+</html>
