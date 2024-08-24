@@ -1,0 +1,40 @@
+.footer {
+  min-height: 79px;
+}
+.footer-top {
+    background-color: $bg-footer;
+    padding: 18px 0 18px;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    &__link {
+        display: inline-flex;
+        &:focus-visible {
+            outline:rgb(131, 164, 64) solid 1px;
+            outline-offset: 2px;
+        }
+    }
+    &__icon {
+        color: $color-greyCopy;
+        transition: all 0.8s;
+        &:hover {
+            color: $color-button;
+        }
+        &:active {
+            color: $color-active;
+        }
+    }
+}
+.footer-bottom {
+    &__coperight {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        color: $color-greyCopy
+    }
+}

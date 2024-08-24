@@ -1,0 +1,35 @@
+.form-search{
+    position: relative;
+    width: 200px;
+    height: 42px;
+  }
+  .form-search__input {
+    height: 42px;
+    width: 0;
+    padding: 0 8px 0 15px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+    background: url(./../image/search.svg);
+    background-position: right;
+    background-repeat: no-repeat;   
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 1.5s;
+      &:hover {
+        color: $color-active; 
+        width: 200px;
+        z-index: 1;
+        border-bottom: 2px solid $color-active;
+      }
+      &:focus-visible {
+        outline: 2px solid $color-active;
+ 
+      }
+  }
+.form-search__input::placeholder  {
+    color: $color-button;
+}

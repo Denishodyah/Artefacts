@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "OpensSansBold";
+    src: url('./../fonts/OpenSans-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "OpensSansRegular";
+    src: url('./../fonts/OpenSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "OpensSansSemiBold";
+    src: url('./../fonts/OpenSansSemiCondensed-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CormorantBold";
+    src: url('./../fonts/Cormorant-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CormorantBoldItalic";
+    src: url('./../fonts/Cormorant-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: "CormorantRegular";
+    src: url('./../fonts/Cormorant-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

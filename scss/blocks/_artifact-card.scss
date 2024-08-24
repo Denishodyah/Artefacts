@@ -1,0 +1,42 @@
+.about-artifact {
+    display: flex;
+    gap: 10px;
+    @media (max-width: 1280px) {
+        flex-direction: column; 
+        max-width: 825px;
+    }
+    &__img {
+        height: auto;
+    }
+}
+.artifact-card {
+    background-color: $color-button;
+    color: $bg-footer;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-self: stretch;
+    padding: 16px 16px 24px;
+    max-width: 255px;
+    @media (max-width: 1280px) {
+        max-width: 100%;
+        
+    }
+    &__title {
+        color: rgb(11, 25, 25);
+font-family:"CormorantBold";
+font-size: clamp(0.75rem, 0.462rem + 1.15vw, 1.5rem);//24px
+line-height: 1;
+margin-bottom: 8px;
+    }
+    &__description {
+        color: rgb(80, 104, 41);
+    }   
+    &__link {
+        color: $bg-footer;
+        margin-top: auto;
+        @media (max-width: 1280px) {
+            margin-top: 20px;
+        }
+    }
+}

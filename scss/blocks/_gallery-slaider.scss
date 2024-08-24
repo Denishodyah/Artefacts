@@ -1,0 +1,60 @@
+.gallery {
+  padding: 60px 0 119px;
+  @media (max-width: 1280px) {
+    padding-bottom: 50px;
+  }
+}
+.gallery-card {
+  display: grid; 
+  grid-template-columns: repeat( auto-fit, minmax(250px, 250px) );
+  gap: 30px;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border:  1px solid rgba(11, 11, 25, 0.4);
+
+  }
+}
+
+.card-body {
+  padding: 16px 16px 24px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  &__title {
+font-family: "CormorantBold";
+font-size: clamp(0.75rem, 0.462rem + 1.15vw, 1.5rem);//24px
+line-height: 1;
+margin-bottom: 8px;
+  }
+  &__description {
+color: rgb(137, 157, 157);
+margin-bottom: 16px;
+  }
+  &__button {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding: 10px 28px;
+
+    background-color: transparent;
+    border: none;
+    color: $color-button;
+    border: 1px solid $color-button;
+    transition: all 0.7s;
+    &:hover {
+      color: $bg-footer;
+      background-color: $color-button;
+    }
+    &:focus-visible {
+      outline: rgb(131, 164, 64) solid 1px;
+      outline-offset: 2px;
+  }
+  &:active {
+    border-color: $color-active;
+    color: $bg-footer;
+    background-color: $color-active;
+  }
+  }
+}

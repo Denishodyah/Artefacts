@@ -1,0 +1,43 @@
+header {
+    padding-block:  20px;
+}
+.header-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.header-actions {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 64px;
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        &:focus-visible {
+            outline: 2px solid rgb(104, 139, 5);
+            outline-offset: 2px;
+        }
+}
+@media (max-width: 412px) {
+    top: -30px;
+}
+}
+
+.button-svg {
+    color: $color-button;
+    transition: color 0.5s;
+    &:hover {
+      color: rgb(145, 172, 70);
+    }
+    &:active {
+        color: $color-active;
+    }
+  
+}
+
+

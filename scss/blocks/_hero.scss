@@ -1,0 +1,46 @@
+.hero {
+  min-height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  &__main {
+    padding-top: 115px;
+  }
+  &__title {
+    font-family: "CormorantBold";
+    font-size:clamp(1.875rem, 1.154rem + 2.88vw, 3.75rem);//60px
+
+    font-weight: 700;
+    line-height: 1;
+    max-width: 660px;
+    margin-bottom: 21px;
+  }
+  &__accent {
+    color: $bg-body;
+  }
+  &__description {
+    max-width: 609px;
+    margin-bottom: 24px;
+  }
+  &__link {
+    display: inline-flex;
+    font-family: "OpensSansBold";
+    color: $color-button;
+    transition: all 0.5s;
+    &:hover {
+      color: $color-active;
+    }
+    &:focus-visible {
+      outline: none;
+      outline: 1px solid rgb(131, 164, 64);
+    }
+    &:active {
+      color: $color-greyCopy;
+    }
+    .hero__svg {
+      display: inline-flex;
+      align-items: center;
+      column-gap: 8px;
+    }
+  }
+}

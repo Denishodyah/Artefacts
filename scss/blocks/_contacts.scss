@@ -1,0 +1,26 @@
+.contacts {
+    min-height: 463px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @media (max-width: 768px) {
+        min-height: 300px;
+        
+    }
+    &__title {
+        padding-top: 60px;
+font-family: "CormorantBoldItalic";
+font-size: clamp(1.5rem, 0.923rem + 2.31vw, 3rem);//48px
+line-height: 1;
+margin-bottom: 16px;
+    }
+    &__description {
+        max-width: 825px;
+        margin-bottom: 24px;
+        @media (max-width: 768px) {
+            display: none;
+            
+        }
+    }
+}

@@ -1,0 +1,10 @@
+.about {
+    padding-bottom: 65px;
+    &__title {
+font-family: "CormorantBoldItalic";
+font-size:clamp(1.5rem, 0.923rem + 2.31vw, 3rem);//48px
+line-height: 1;
+margin-bottom: 33px;
+    }
+   
+}

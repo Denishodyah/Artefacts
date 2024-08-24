@@ -1,0 +1,99 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color:transparent;
+    z-index: 20;
+  }
+  
+  /* Стили содержимого модального окна */
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    padding: 100px 20px;
+    background-color:rgb(11, 98, 21, .2);
+    box-shadow: rgb(29, 240, 236) 0px 5px 20px;
+    border-radius: 10px;
+    
+    
+  }
+  
+   
+  /* Стили кнопки закрытия модального окна */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 24px;
+    text-align: center;
+    line-height: 30px;
+  }
+  .modal__title {
+    font-size: 32px;
+    line-height: 1.5;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-login {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.form-login__box {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-login__label {
+  font-size: 16px;
+  color: #00e21e;
+}
+
+.form-login__input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #00e21e;
+  margin-left: 10px;
+  color: $color-button;
+  caret-color: #06fe27;
+  &:focus {
+    outline: none;
+  }
+}
+.form-login__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #00e21e;
+    border-radius: 10px;
+    transition: all 1s ;
+    &:hover {
+    background-color: #00e21e;
+}
+&:focus-visible {
+    &:focus-visible {   
+        outline: $color-active solid 2px;
+    }
+}
+}
